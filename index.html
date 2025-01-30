@@ -1,418 +1,158 @@
-<!DOCTYPE html>
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Portfolio</title>
-    <style>
-        body {
-            margin: 0;
-            font-family: Arial, sans-serif;
-            background-color: #090909;
-            color: whitesmoke;
-            padding: 30px;
-            overflow-x: hidden;
-        }
-
-        .container {
-            display: flex;
-            height: 100vh;
-            overflow: hidden;
-            flex-wrap: nowrap;
-            overflow-x: hidden;
-        }
-
-        /* LeftBar */
-        .left-bar {
-            padding: 20px;
-            border-radius: 3%;
-            background-color: #561212;
-            width: 25%;
-            min-width: 250px;
-            text-align: center;
-            box-shadow: 2px 0 5px rgba(0, 0, 0, 0.5);
-            margin-right: 25px;
-            flex-shrink: 0;
-            overflow: scroll;
-            overflow-x: hidden;
-            scrollbar-color: transparent transparent;
-        }
-
-        .profile-pic img {
-            width: 180px;
-            height: 180px;
-            border-radius: 50%;
-            margin-bottom: 15px;
-            box-shadow: 0 0px 8px #d1d1d1;
-        }
-
-        h2 {
-            margin-bottom: 5px;
-        }
-
-        .tagline {
-            margin-bottom: 15px;
-            font-size: 14px;
-            color: #8f8f8f;
-        }
-
-        /* Info */
-        .info {
-            display: grid;
-            grid-template-columns: 1fr 2fr;
-            gap: 30px;
-            text-align: left;
-            box-shadow: 0 0px 7px #d1d1d1;
-            border-radius: 5%;
-            padding: 10%;
-            overflow: scroll;
-            scrollbar-width: thin;
-            scrollbar-color: transparent transparent;
-        }
-
-        .info-row {
-            display: contents;
-        }
-
-        .info-heading {
-            font-weight: bold;
-            color: #d1d1d1;
-        }
-
-        .info-value {
-            color: #8f8f8f;
-        }
-
-        /* RightBar */
-        .right-bar {
-            flex-grow: 1;
-            border-radius: 3%;
-            background-color: #292929;
-            padding: 20px;
-            overflow-y: auto;
-        }
-
-        /* Navbar */
-        .navbar {
-            background-color: #286762;
-            padding: 10px;
-            text-align: right;
-            border-radius: 10px;
-            margin-bottom: 20px;
-        }
-
-        .navbar a {
-            color: whitesmoke;
-            text-decoration: none;
-            display: inline-block;
-            margin: 0 15px;
-            font-size: 16px;
-            padding: 5px 10px;
-            border-radius: 5px;
-            transition: background-color 0.3s;
-        }
-
-        .navbar a:hover {
-            background-color: #aed012;
-        }
-
-        /* Content Section */
-        .content-section {
-            display: none;
-            margin-top: 20px;
-            padding: 5%;
-            padding-top: 3%;
-            background-color: #5c1d1d;
-            border-radius: 10px;
-            text-align: left;
-            font-size: 18px;
-            line-height: 1.6;
-        }
-
-        .content-section.active {
-            display: block;
-        }
-
-        /* Scrollbars */
-        .right-bar::-webkit-scrollbar {
-            width: 3px;
-        }
-
-        .right-bar::-webkit-scrollbar-thumb {
-            background-color: #900c0c;
-            border-radius: 10px;
-        }
-
-        /* Paragraph */
-        .descrption {
-            text-indent: 4em;
-        }
-
-        /* Project */
-        .project_container {
-            border: 2px solid #d1d1d1;
-            display: flex;
-            color: #d1d1d1;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            background-color: #1c1c1c;
-            padding: 15px;
-            border-radius: 10px;
-            margin-bottom: 20px;
-        }
-
-        /* Home */
-        .home_container {
-            border: 2px solid #d1d1d1;
-            color: #d1d1d1;
-            display: flex;
-            flex-direction: column;
-            align-items: left;
-            background-color: #1c1c1c;
-            padding: 15px;
-            border-radius: 10px;
-            margin-bottom: 20px;
-        }
-
-        /* Skills */
-        .skills_container {
-            border: 2px solid #d1d1d1;
-            color: #d1d1d1;
-            display: flex;
-            flex-direction: column;
-            align-items: left;
-            background-color: #1c1c1c;
-            padding: 15px;
-            border-radius: 10px;
-            margin-bottom: 20px;
-        }
-
-        ul {
-            margin-left: 2%;
-        }
-
-        /* Contact */
-        #info_container {
-            border-radius: 10px;
-            background-color: #1c1c1c;
-            border: 2px solid #d1d1d1;
-            box-shadow: none;
-            padding: 5%;
-        }
-
-        .social-icons {
-            border: 2px solid #d1d1d1;
-            background-color: #1c1c1c;
-            color: #d1d1d1;
-            justify-items: center;
-            padding: 15px;
-            padding-bottom: 40px;
-            border-radius: 10px;
-            margin-bottom: 20px;
-            margin-top: 40px;
-        }
-
-        .social-link {
-            text-decoration: none;
-            color: #8f8f8f;
-            margin: 25px;
-        }
-    </style>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Portfolio</title>
+  <link rel="stylesheet" href="style.css" />
+  <script src="https://kit.fontawesome.com/66aa7c98b3.js" crossorigin="anonymous"></script>
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"
+    integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
 </head>
 
 <body>
-    <div class="container">
-        <!-- Left Bar -->
-        <div class="left-bar">
-            <div class="profile-pic">
-                <img src="my-avatar.png" alt="Profile Picture">
-            </div>
-            <h2>KALAISELVAN P</h2>
-            <p class="tagline">Passionate ECE Student<br>Bridging Hardware and Software</p><br>
-            <div class="info">
-                <div class="info-row">
-                    <div class="info-heading"><strong>Phone:</strong></div>
-                    <div class="info-value">+91 9943852200</div>
-                </div>
-                <div class="info-row">
-                    <div class="info-heading"><strong>Email:</strong></div>
-                    <div class="info-value">kalaiselvansivagami2004@gmail</div>
-                </div>
-                <div class="info-row">
-                    <div class="info-heading"><strong>Address:</strong></div>
-                    <div class="info-value">Coimbatore, Tamil Nadu</div>
-                </div>
-                <div class="info-row">
-                    <div class="info-heading"><strong>College:</strong></div>
-                    <div class="info-value">Sri Krishna College of Engineering and Technology</div>
-                </div>
-                <div class="info-row">
-                    <div class="info-heading"><strong>Degree:</strong></div>
-                    <div class="info-value">Bachelor of Engineering</div>
-                </div>
-                <div class="info-row">
-                    <div class="info-heading"><strong>Branch:</strong></div>
-                    <div class="info-value">Electronics and Communication</div>
-                </div>
-                <div class="info-row">
-                    <div class="info-heading"><strong>Year:</strong></div>
-                    <div class="info-value">2nd Year</div>
-                </div>
-                <div class="info-row">
-                    <div class="info-heading"><strong>Programming Languages:</strong></div>
-                    <div class="info-value">C,C++,Java,Python, JavaScript</div>
-                </div>
-            </div>
+  <header class="header">
+    <nav class="navbar">
+      <div class="navbar-container container">
+        <div>
+          <h1 class="navbar-brand">Kalaiselvan P</h1>
         </div>
-
-        <!-- Right Bar -->
-        <div class="right-bar">
-            <nav class="navbar">
-                <a href="#home" onclick="showSection('home')">Home</a>
-                <a href="#skills" onclick="showSection('skills')">Skills</a>
-                <a href="#project" onclick="showSection('project')">Project</a>
-                <a href="#contact" onclick="showSection('contact')">Contact</a>
-            </nav>
-            <div id="home" class="content-section active">
-                <div class="home_container">
-                    <h2>Hello,</h2>
-                    <h2>I am Kalaiselvan P</h2>
-                    <p class="descrption">Proactive ECE student with a strong foundation in electronics design, programming, and signal processing. Skilled in analyzing and solving technical challenges and eager to apply theoretical concepts to real-world applications.</p>
-                    <p class="descrption">Enthusiastic Electronics and Communication Engineering student seeking to leverage technical skills and knowledge in circuits, communication systems, and embedded technologies to contribute to innovative projects and professional growth.</p>
-                    <p class="descrption">Driven by a keen interest in embedded systems and communication technologies, I am eager to translate my technical expertise into practical solutions. Recognized for my analytical mindset and curiosity, I excel in working collaboratively and adapting to challenging environments.</p>
-                </div>
-                <div class="home_container">
-                    <h2>Education</h2>
-                    <dl>
-                        <dt>
-                            <h3>University of Engineering</h3>
-                        </dt>
-                        <dd> Sri Krishna College of Engineering and Technology,<br>Coimbatore — B.E.ECE </dd>
-                        <dd> Nov 2023 <br>
-                            I sem CGPA: 8.2</dd>
-                        <dt>
-                            <h3>High School Education</h3>
-                        </dt>
-                        <dd> kalaikovil hr sec school<br>polarai— HSC</dd>
-                        <dd> Mar 2024<br>
-                            percentage: 92.6 </dd>
-                    </dl>
-                </div>
-            </div>
-            <div id="project" class="content-section">
-                <div class="project_container">
-                    <h2>JDBC Hospital Management</h2>.
-                    <p class="descrption">This project involves designing a hospital management system using Java Database Connectivity (JDBC). The system integrates a user-friendly interface with a database to manage hospital operations such as patient records, doctor schedules, appointment bookings, and billing. It demonstrates efficient database connectivity, query execution, and data manipulation in Java, showcasing how technology streamlines administrative tasks in healthcare.</p>
-                </div>
-                <div class="project_container">
-                    <h2>People Counting Using IR Sensor and Embedded Systems</h2>
-                    <p class="descrption">This project utilizes Infrared (IR) sensors and embedded systems to develop a people-counting device. The system detects the entry and exit of individuals by using IR beams and processes the count data in real-time. Applications include automating occupancy tracking in rooms, malls, or offices, and implementing crowd control measures. The embedded system ensures accuracy and low power consumption, making it suitable for smart monitoring systems.</p>
-                </div>
-                <div class="project_container">
-                    <h2>Smart Lock System</h2>
-                    <p class="descrption">This embedded system project features a secure smart lock controlled via a keypad. Users input a password, which the microcontroller (AT89C51) verifies to lock or unlock a mechanism. The system includes an LCD for user feedback, displaying lock status or prompting for the password. It's a practical application of microcontroller interfacing, emphasizing security, ease of use, and real-world embedded solutions.</p>
-                </div>
-                <div class="project_container">
-                    <h2>Smart Home Automation</h2>
-                    <p class="descrption">The Smart Home Automation project focuses on creating a system to control home appliances such as lights, fans, or other devices remotely. Using microcontrollers or Arduino, the system integrates sensors and communication modules (e.g., Bluetooth, Wi-Fi) to enable control via a smartphone or voice commands. This project highlights the growing trend of IoT in making homes energy-efficient, convenient, and futuristic.</p>
-                </div>
-            </div>
-            <div id="skills" class="content-section">
-                <div class="skills_container">
-                    <h2>Technical Skills</h2>
-                    <ul>
-                        <li>Problem Solving</li>
-                        <li>Data Structures and Algorithms</li>
-                        <li>Web development</li>
-                        <li>Database Management System</li>
-                        <li>JDBC connectivity</li>
-                        <li>Android App Development</li>
-                        <li>Digital System Design</li>
-                        <li>Embedded System</li>
-                        <li>Circuit analysis</li>
-                        <li>Electronic Circuits</li>
-                    </ul>
-                </div>
-                <div class="skills_container">
-                    <h2>Programming Skills</h2>
-                    <ul>
-                        <li>Assembly Programming</li>
-                        <li>C Programming</li>
-                        <li>C++ Programming</li>
-                        <li>JAVA Programming</li>
-                        <li>Python Programming</li>
-                        <li>MySQL</li>
-                        <li>Bash</li>
-                        <li>HTML</li>
-                        <li>CSS</li>
-                        <li>JavaScript</li>
-                    </ul>
-                </div>
-                <div class="skills_container">
-                    <h2>Languages</h2>
-                    <ul>
-                        <li>Tamil</li>
-                        <li>English</li>
-                        
-                         <li>Malayalam</li>
-                    </ul>
-                </div>
-            </div>
-            <div id="contact" class="content-section">
-                <div id="info_container" class="info">
-                    <div class="info-row">
-                        <div class="info-heading"><strong>Phone:</strong></div>
-                        <div class="info-value">+91 9442745808 </div>
-                    </div>
-                    <div class="info-row">
-                        <div class="info-heading"><strong>Email:</strong></div>
-                        <div class="info-value">kalaiselvansivagami2004@gmail</div>
-                    </div>
-                    <div class="info-row">
-                        <div class="info-heading"><strong>WhatsApp:</strong></div>
-                        <div class="info-value">+91 9943852200</div>
-                    </div>
-                    <div class="info-row">
-                        <div class="info-heading"><strong>College:</strong></div>
-                        <div class="info-value">Sri Krishna College of Engineering and Technology</div>
-                    </div>
-                    <div class="info-row">
-                        <div class="info-heading"><strong>Address:</strong></div>
-                        <div class="info-value">42,salarappatti<br>Aalampalayam<br>Tiruppur-638661.</div>
-                    </div>
-                </div>
-                <div class="social-icons">
-                    <h3>Socials</h3><br>
-                    <a href="#" class="social-link" style="font-size: 30px; color: #25D366;">
-                        <ion-icon name="logo-whatsapp"></ion-icon>
-                    </a>
-                    <a href="#" class="social-link" style="font-size: 30px; color: rgb(26, 108, 176);">
-                        <ion-icon name="logo-linkedin"></ion-icon>
-                    </a>
-                    <a href="#" class="social-link" style="font-size: 30px; color: white">
-                        <ion-icon name="logo-github"></ion-icon>
-                    </a>
-
-                    <a href="#" class="social-link" style="font-size: 30px; color: #E1306C;">
-                        <ion-icon name="logo-instagram"></ion-icon>
-                    </a>
-                </div>
-            </div>
-        </div>
+        <ul class="menu-items">
+          <li><a href="#about">About</a></li>
+          <li><a href="#my-works">Portfolio</a></li>
+          <li><a href="#contact-me">Contact</a></li>
+        </ul>
+      </div>
+    </nav>
+    <div class="home-content" id="home-page">
+      <div class="name">
+        <h1>Hi, I'm Kalaiselvan</h1>
+        <p>engineer</p>
+      </div>
+      <div class="angle-down-icon">
+        <a href="#about"><i class="fas fa-angle-down"></i></a>
+      </div>
     </div>
+  </header>
+  <section class="about-me" id="about">
+    <div class="container">
+      <div class="about-content">
+        <div class="left-content">
+          <div>
+            <h1 class="about-heading">About Me</h1>
+          </div>
+          <img src="https://i.postimg.cc/Hx4nChpH/fbavatar-1630400663387-6838396024049256103.png" alt="image" />
+          <p>
+            I am 20 year old, BE ECE student studied SKCET.
+            I really enjoy solving problems as well as making things pretty and easy to use. I can't stop learning new
+            things; the more, the better.
+          </p>
+          <div class="work-arrow">
+            <p>
+              <a href="#my-works">Check out my work <i class="fas fa-arrow-down"></i></a>
+            </p>
+          </div>
+        </div>
+        <div class="skills">
+          <div class="right-content">
+            <div>
+              <h1 class="skills-heading">My Skills</h1>
+            </div>
+            <div class="skills-bar">
+              <div class="bar">
+                <div class="info">
+                  <span>HTML</span>
+                </div>
+                <div class="progress-line"><span class="html"></span></div>
+                <div class="bar">
+                  <div class="info">
+                    <span>CSS</span>
+                  </div>
+                  <div class="progress-line"><span class="css"></span></div>
+                  <div class="bar">
+                    <div class="info">
+                      <span>BOOTSTRAP</span>
+                    </div>
+                    <div class="progress-line"><span class="bootstrap"></span></div>
+                    <div class="bar">
+                      <div class="info">
+                        <span>JAVASCRIPT</span>
+                      </div>
+                      <div class="progress-line"><span class="javascript"></span></div>
+                      <div class="bar">
+                        <div class="info">
+                          <span>C Programming</span>
+                        </div>
+                        <div class="progress-line"><span class="c"></span></div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="work-arrow-2">
+              <p>
+                <a href="#my-works">Check out my work <i class="fas fa-arrow-down"></i></a>
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section id="my-works">
+    <div class="portfolio">
+      <div class="proj-heading">
+        <h1>Portfolio</h1>
+      </div>
+      <div class="portfolio-content container">
+        <div class="proj-1">
+          <img src="">
+          
+        </div>
 
-    <script>
-        function showSection(sectionId) {
-            event.preventDefault();
-            const sections = document.querySelectorAll('.content-section');
-            sections.forEach((section) => section.classList.remove('active'));
-            document.getElementById(sectionId).classList.add('active');
-        }
-    </script>
-    <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
-    <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+        <div class="proj-2">
+          <img src="">
+          <div class="proj2-details">
+            <i class="fab fa-html5"></i>
+            <i class="fab fa-css3-alt"></i>
+            <h2>Profile Card</h2>
+            <p>Build Using HTML,CSS</p>
+           
+          </div>
+
+        </div>
+        <div class="more-work">
+          <p>
+            More
+          </p>
+          <a href="https://codepen.io/sanketbodke" target="blank">CodePen</a>
+        </div>
+      </div>
+    </div>
+  </section>
+  <div class="contact" id="contact-me">
+    <div class="container">
+      <div class="contact-content">
+        <h2>Contact Me</h2>
+        <p class="mail">
+          Get in touch with me <i class="fas fa-arrow-right"></i> Kalaiselvansivagami@gmail.com
+        </p>
+        <p class="links">Or find me on:</p>
+        <a href="https://www.linkedin.com/in/sanket-bodake-995b5b205/" target="blank"><i class="fab fa-linkedin">
+            Linkedin</i></a>
+        <a href="https://codepen.io/sanketbodke" target="blank"><i class="fab fa-codepen"> CodePen</i></a>
+        <a href="https://github.com/sanketbodke" target="blank"><i class="fab fa-github"></i> Github</a>
+        <a href="https://dev.to/sanketbodake" target="blank"><i class="fab fa-dev"></i> Dev Community</a>
+        <a href="https://twitter.com/Sanket46171296" target="blank"><i class="fab fa-twitter"> Twitter</i></a>
+        <a href="https://www.instagram.com/imsanketbodke/" target="blank"><i class="fab fa-instagram"></i> Instagram</a>
+      </div>
+    </div>
+  </div>
+  <!-- JAVASCRIPT -->
+  <script src="app.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 </body>
 
 </html>
